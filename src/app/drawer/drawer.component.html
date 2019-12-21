@@ -1,0 +1,127 @@
+<div
+  class="default"
+  [ngClass]="{
+    drawer: drawerService.getIsDrawerOpen(),
+    close: drawerService.getIsDrawerClose()
+  }"
+>
+  <ng-container *ngIf="drawerService.getIsDrawerOpen()">
+    <div class="drawer-content">
+      <div class="row button-group">
+        <div class="col-md-6 padding-clear">
+          <input
+            type="radio"
+            name="radio"
+            id="radio1"
+            value="radio1"
+            (click)="onClickRadio(1)"
+            checked
+            hidden
+          />
+          <label
+            for="radio1"
+            class="w-100 radio-button"
+            [ngClass]="{ check: selectToiawase }"
+          >
+            <h2>問い合わせ</h2>
+          </label>
+        </div>
+        <!-- <div class="col-md-4 padding-clear">
+          <input
+            type="radio"
+            name="radio"
+            id="radio2"
+            value="radio2"
+            (click)="onClickRadio(2)"
+            hidden
+          />
+          <label
+            for="radio2"
+            class="w-100 radio-button"
+            [ngClass]="{ check: selectSeisaku }"
+          >
+            <h2>制作</h2>
+          </label>
+        </div> -->
+        <div class="col-md-6 padding-clear">
+          <input
+            type="radio"
+            name="radio"
+            id="radio3"
+            value="radio3"
+            (click)="onClickRadio(3)"
+            hidden
+          />
+          <label
+            for="radio3"
+            class="w-100 radio-button"
+            [ngClass]="{ check: selectRireki }"
+          >
+            <h2>更新履歴</h2>
+          </label>
+        </div>
+      </div>
+      <!-- 問い合わせ -->
+      <div *ngIf="selectToiawase" class="sm-content">
+        <p>バグや要望があればご連絡お願いします。</p>
+        <form class="needs-validation" (submit)="sendComment($event)" id="toiawase" novalidate>
+          <div class="form-group">
+            <label for="name">お名前</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-control"
+              [(ngModel)]="name"
+              appFocusOut
+              required
+            />
+            <div class="invalid-feedback">お名前を入力してください。</div>
+          </div>
+          <div class="form-group">
+            <label for="mail">メールアドレス</label>
+            <input
+              type="email"
+              id="mail"
+              name="mail"
+              class="form-control"
+              [(ngModel)]="mailAddress"
+              appFocusOut
+            />
+          </div>
+          <div class="form-group">
+            <label for="contents">内容</label>
+            <textarea
+              rows="5"
+              id="contents"
+              name="contents"
+              class="form-control"
+              [(ngModel)]="contents"
+              appFocusOut
+              required
+            ></textarea>
+            <div class="invalid-feedback">内容を入力してください。</div>
+          </div>
+          <div style="text-align: right;">
+            <button type="submit" class="btn btn-default">送信</button>
+          </div>
+        </form>
+      </div>
+      <!-- 制作 -->
+      <!-- <div *ngIf="selectSeisaku" class="sm-content">
+        <p>バグや要望があればご連絡お願いします。</p>
+      </div> -->
+      <!-- 更新履歴 -->
+      <div *ngIf="selectRireki" class="sm-content">
+        <p>ChordSearcherの更新履歴一覧です。</p>
+        <div class="rireki">
+          <ng-container *ngFor="let item of rirekiItem">
+            <h5>{{ item.date }}&nbsp;{{ item.title }}</h5>
+            <hr />
+            <p>{{ item.text }}</p>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,65 @@
+<div class="content-area">
+  <ng-container *ngIf="!isLoading; else Loading">
+    <!-- 検索 -->
+    <div class="search">
+      <form>
+        <div class="custom-control custom-switch mode-change">
+          <input
+            type="checkbox"
+            class="custom-control-input secondary"
+            id="onmeiMode"
+            (click)="onClickChangeOnmeiMode()"
+          />
+          <label class="custom-control-label onmei-mode" for="onmeiMode">
+            Alphabet
+          </label>
+        </div>
+      </form>
+      <p class="search-text">▼ 検索したい音をクリックしてください。</p>
+      <p class="search-text">最大4つまで選択できます。</p>
+      <br />
+      <form style="display: inline;">
+        <ng-container *ngFor="let item of onmeiList; index as i">
+          <input
+            id="onmei{{ i }}"
+            type="checkbox"
+            [(ngModel)]="item.check"
+            [name]="item.name"
+            (change)="onClickCheckBox()"
+            [disabled]="!item.check && isCheckBoxDisabled"
+            hidden
+          />
+          <label for="onmei{{ i }}">
+            <div
+              class="onmei"
+              [ngClass]="{
+                check: item.check,
+                onmeiAnimation: item.check || !isCheckBoxDisabled
+              }"
+            >
+              <img class="image" src="{{ getOnmeiImageFilePath(i) }}" />
+              <ng-container *ngIf="isAlphabetMode; else Katakana">
+                <p>{{ item.mark }}</p>
+              </ng-container>
+              <ng-template #Katakana>
+                <p>{{ item.name }}</p>
+              </ng-template>
+            </div>
+          </label>
+        </ng-container>
+      </form>
+    </div>
+    <!-- 結果 -->
+    <app-code-result
+      [searchChordList]="searchChordList"
+      [isAlphabetMode]="isAlphabetMode"
+    ></app-code-result>
+  </ng-container>
+  <ng-template #Loading>
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border loading-icon" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </ng-template>
+</div>

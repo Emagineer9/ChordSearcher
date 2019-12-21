@@ -1,0 +1,16 @@
+<div class="header" [ngClass]="{ transform: isTransformHeader }">
+  <h1>ChordSearcher</h1>
+  <div class="sns">
+  </div>
+  <div class="menu">
+    <div
+      class="menu-btn"
+      [ngClass]="{ close: drawerService.getIsDrawerOpen() }"
+      (click)="onClickMenuIcon()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</div>

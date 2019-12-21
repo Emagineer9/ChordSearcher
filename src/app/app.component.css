@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
+
+.circle {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(187, 190, 202, 0.5);
+  text-align: center;
+  font-size: 14px;
+  line-height: 60px;
+  transition-duration: 0.5s;
+  opacity: 1;
+}
+
+.circle.none{
+  visibility: hidden;
+  opacity: 0;
+}
+
+footer {
+  text-align: center;
+}
+
+footer p {
+  font-size: 14px;
+  color: rgb(53, 47, 43);
+  font-family: "Quicksand", sans-serif;
+}
+
+.returnTop {
+  font-size: 20px;
+  color: rgba(53, 47, 43, .8);
+}
+
+@media only screen and (max-width: 750px) {
+}

@@ -1,0 +1,35 @@
+<div class="result-area">
+  <ng-container *ngFor="let item of searchChordList; index as i">
+    <input
+      id="acd-check{{ i }}"
+      class="acd-check"
+      type="checkbox"
+      [(ngModel)]="item.openAcd"
+    />
+    <label class="acd-label" for="acd-check{{ i }}">
+      {{ getAccordionIcon(i) }}&nbsp;{{ getTitleOnmeiName(i) }}{{ item.codeName }}
+    </label>
+    <div class="acd-content">
+      <ng-container *ngFor="let onmei of item.onmeiList">
+        <div class="acd-onmei">
+          <ng-container *ngIf="isAlphabetMode; else Katakana">
+            <p>{{ onmei.mark }}</p>
+          </ng-container>
+          <ng-template #Katakana>
+            <p>{{ onmei.name }}</p>
+          </ng-template>
+          <img src="{{ getOnmeiImageFilePath(onmei.fileName) }}" />
+        </div>
+      </ng-container>
+      <div class="acd-kenban">
+        <ng-container *ngFor="let onmei of item.onmeiList">
+          <div class="circle kenban{{ onmei.mark }}"></div>
+        </ng-container>
+        <img class="acd-kenban" src="{{ getKenbanImageFilePath() }}" />
+      </div>
+    </div>
+  </ng-container>
+  <div class="no-result" *ngIf="getSearchChordListSonzai()">
+    ありません。
+  </div>
+</div>

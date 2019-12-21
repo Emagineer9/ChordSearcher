@@ -1,0 +1,177 @@
+.result-area{
+  max-width: 700px;
+  min-width: 550px;
+  color: rgb(53, 47, 43);
+}
+
+.no-result {
+  text-align: center;
+  padding: 30px;
+  margin-bottom: 30%;
+}
+
+.acd-check{
+  display: none;
+}
+
+.acd-label{
+  background: rgba(187, 190, 202, 0.5);
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-weight: 2;
+}
+
+.acd-content{
+  height: 0;
+  opacity: 0;
+  padding: 0 10px;
+  transition: .4s;
+  visibility: hidden;
+}
+
+.acd-check:checked + .acd-label + .acd-content{
+  height: auto;
+  opacity: 1;
+  padding: 10px;
+  visibility: visible;
+  text-align: center;
+}
+
+.acd-content div{
+  opacity: 0;
+  visibility: hidden;
+}
+.acd-check:checked + .acd-label + .acd-content div{
+  opacity: 1;
+  visibility: visible;
+}
+
+.acd-onmei {
+  display: inline-block;
+  text-align: center;
+  position: relative;
+}
+
+.acd-onmei img {
+  width: 60px;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.acd-onmei p {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  white-space: nowrap;
+}
+
+.acd-kenban {
+  display: inline-block;
+  text-align: center;
+  position: relative;
+}
+
+.acd-kenban img {
+  margin-left: 20px;
+  width: 230px;
+  height: auto;
+}
+
+/* 鍵盤マーク */
+.circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgb(145, 137, 122, .8);
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+}
+
+.kenbanC {
+  top: 100px;
+  left: 38px;
+}
+
+.kenbanC♯ {
+  top: 65px;
+  left: 53px;
+}
+
+.kenbanD {
+  top: 100px;
+  left: 68px;
+}
+
+.kenbanD♯ {
+  top: 65px;
+  left: 84px;
+}
+
+.kenbanE {
+  top: 100px;
+  left: 98px;
+}
+
+.kenbanF {
+  top: 100px;
+  left: 128px;
+}
+
+.kenbanF♯ {
+  top: 65px;
+  left: 143px;
+}
+
+.kenbanG {
+  top: 100px;
+  left: 158px;
+}
+
+.kenbanG♯ {
+  top: 65px;
+  left: 173px;
+}
+
+.kenbanA {
+  top: 100px;
+  left: 188px;
+}
+
+.kenbanA♯ {
+  top: 65px;
+  left: 203px;
+}
+
+.kenbanB {
+  top: 100px;
+  left: 217px;
+}
+
+@media only screen and (max-width: 700px) {
+  .result-area{
+    max-width: 350px;
+    min-width: 330px;
+  }
+
+  .acd-onmei img {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+
+  .acd-onmei p {
+    top: 15px;
+  }
+
+  .acd-kenban img {
+    margin-right: 20px;
+  }
+}

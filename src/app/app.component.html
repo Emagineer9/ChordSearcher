@@ -1,0 +1,14 @@
+<app-header [isTransformHeader]="isTransformHeader"></app-header>
+<app-search-area id="search-area"></app-search-area>
+<div
+  class="circle"
+  [ngClass]="{ none: !isTransformHeader }"
+  (click)="onClickReturnTop()"
+>
+  <span class="glyphicon glyphicon-chevron-up returnTop" aria-hidden="false"></span>
+</div>
+<app-drawer></app-drawer>
+<footer>
+  <p>Copyright &copy; 2019 Emagineer</p>
+</footer>
+<router-outlet></router-outlet>

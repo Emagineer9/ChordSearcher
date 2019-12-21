@@ -1,0 +1,27 @@
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css");
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css");
+
+html {
+  font-size: .9rem;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-y: scroll;
+  color: rgb(53, 47, 43);
+  cursor: default;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(145, 137, 122, .1);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(187, 190, 202, .9);
+  box-shadow:0 0 0 1px rgba(183, 198, 200, .3);
+}
