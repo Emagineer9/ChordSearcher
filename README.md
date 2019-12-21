@@ -1,4 +1,11 @@
-# CodeSearch
+# ChordSearcher
+
+構成音からコードを探すお手伝いをするサイト。
+Angular、Firebase、Bootstrapを使用して実装。
+Firebaseの設定はすべて「***」で置き換えてあります。
+Qiita等で調べて実装お願いします。
+
+# ChordSearcher
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.12.
 
